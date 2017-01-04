@@ -14,8 +14,8 @@ source:
 
 build:
   number: 0
-  # skip py3k/osx because of time constraint on Travis
-  skip: true  # [win or (osx and py3k)]
+  # unsupported on windows, cmake support in git version
+  skip: true  # [win]
   detect_binary_files_with_prefix: True
 
 requirements:
