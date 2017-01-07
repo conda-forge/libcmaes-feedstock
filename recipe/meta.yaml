@@ -13,7 +13,7 @@ source:
     - py3k.patch
 
 build:
-  number: 0
+  number: 1
   # unsupported on windows, cmake support in git version
   skip: true  # [win]
   detect_binary_files_with_prefix: True
@@ -25,13 +25,13 @@ requirements:
     - automake  # [unix]
     - libtool  # [unix]
     - python
-    - boost 1.62.*
+    - boost 1.63.*
     - eigen
     - numpy x.x
   run:
     - python
     - numpy x.x
-    - boost 1.62.*
+    - boost 1.63.*
 
 test:
   commands:
