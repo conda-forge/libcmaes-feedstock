@@ -22,6 +22,7 @@ cmake -LAH -G "%CMAKE_GENERATOR%"                  ^
   -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%"        ^
   -DUSE_COMPILE_FEATURES=OFF                       ^
   -DUSE_OPENMP=OFF                                 ^
+  -DBUILD_SHARED_LIBS=OFF                          ^
   -DCMAKE_BUILD_TYPE=Release                       ^
   -DPYTHON_SITE_PACKAGES="%SP_DIR%" ..
 if errorlevel 1 exit 1
