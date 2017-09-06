@@ -6,9 +6,12 @@ git checkout 1a06949
 
 
 # https://github.com/beniz/libcmaes/pull/169
+git config user.name "Appveyor"
+git config user.email appveyor@appveyor.org
 git remote add jschueller https://github.com/jschueller/libcmaes.git
 git fetch jschueller
 git cherry-pick 5f0e7f7 6c6073a
+type python\CMakeLists.txt
 
 mkdir build && cd build
 
