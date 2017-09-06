@@ -4,10 +4,11 @@ git clone https://github.com/beniz/libcmaes.git
 cd libcmaes 
 git checkout 1a06949
 
+
 # https://github.com/beniz/libcmaes/pull/169
 git remote add jschueller https://github.com/jschueller/libcmaes.git
 git fetch jschueller
-git cherry-pick 5f0e7f7
+git cherry-pick 5f0e7f7 6c6073a
 
 mkdir build && cd build
 
