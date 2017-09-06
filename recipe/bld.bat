@@ -2,7 +2,7 @@
 # cmake support in git
 git clone https://github.com/beniz/libcmaes.git
 cd libcmaes 
-git checkout 9fa2081 
+git checkout 1a06949
 
 mkdir build && cd build
 
