@@ -14,9 +14,10 @@ source:
 
 build:
   number: 2
-  # unsupported on windows, cmake support in git version
-  skip: true  # [win]
-  detect_binary_files_with_prefix: True
+  # does not build with vc9
+  skip: true  # [win and py<35]
+  features:
+    - vc14  # [win and py>=35]
 
 requirements:
   build:
@@ -24,6 +25,7 @@ requirements:
     - autoconf  # [unix]
     - automake  # [unix]
     - libtool  # [unix]
+    - cmake  # [win]
     - python
     - boost 1.64.*
     - eigen
