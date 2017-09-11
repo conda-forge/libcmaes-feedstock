@@ -2,16 +2,7 @@
 # cmake support in git
 git clone https://github.com/beniz/libcmaes.git
 cd libcmaes 
-git checkout 1a06949
-
-
-# https://github.com/beniz/libcmaes/pull/169
-git config user.name "Appveyor"
-git config user.email appveyor@appveyor.org
-git remote add jschueller https://github.com/jschueller/libcmaes.git
-git fetch jschueller
-git cherry-pick 5f0e7f7 6c6073a 35eb9b0
-type python\CMakeLists.txt
+git checkout 3b87935
 
 mkdir build && cd build
 
@@ -19,9 +10,7 @@ cmake -LAH -G "%CMAKE_GENERATOR%"                  ^
   -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"           ^
   -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%"        ^
   -DUSE_COMPILE_FEATURES=OFF                       ^
-  -DUSE_OPENMP=OFF                                 ^
   -DBUILD_SHARED_LIBS=OFF                          ^
-  -DCMAKE_BUILD_TYPE=Release                       ^
   -DPYTHON_SITE_PACKAGES="%SP_DIR%" ..
 if errorlevel 1 exit 1
 
