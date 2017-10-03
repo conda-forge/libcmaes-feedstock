@@ -13,7 +13,7 @@ source:
     - py3k.patch
 
 build:
-  number: 2
+  number: 3
   # does not build with vc9
   skip: true  # [win and py<35]
   features:
@@ -29,17 +29,18 @@ requirements:
     - python
     - boost 1.64.*
     - eigen
-    - numpy x.x
+    - numpy 1.9.*  # [not (win and py36)]
+    - numpy 1.11.*  # [win and py36]
   run:
     - python
-    - numpy x.x
+    - numpy >=1.9  # [not (win and py36)]
+    - numpy >=1.11  # [win and py36]
     - boost 1.64.*
 
 test:
   commands:
     - test -f ${PREFIX}/include/libcmaes/cmaes.h  # [unix]
-    - test -f ${PREFIX}/lib/libcmaes.so  # [linux]
-    - test -f ${PREFIX}/lib/libcmaes.dylib  # [osx]
+    - test -f ${PREFIX}/lib/libcmaes${SHLIB_EXT}  # [unix]
   imports:
     - lcmaes
 
