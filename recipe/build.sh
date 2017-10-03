@@ -1,6 +1,7 @@
 #!/bin/sh
 
-export CXXFLAGS="${CXXFLAGS} -I${PREFIX}/include"
+PYTHON_INCLUDE_DIR=`python -c "from sysconfig import get_paths; info = get_paths(); print(info['include'])"`
+export CXXFLAGS="${CXXFLAGS} -I${PREFIX}/include -I${PYTHON_INCLUDE_DIR}"
 
 if test "${PY3K}" = "1"
 then
