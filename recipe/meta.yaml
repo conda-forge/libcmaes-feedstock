@@ -16,26 +16,26 @@ build:
   number: 3
   # does not build with vc9
   skip: true  # [win and py<35]
-  features:
-    - vc14  # [win and py>=35]
 
 requirements:
   build:
-    - toolchain
     - autoconf  # [unix]
     - automake  # [unix]
     - libtool  # [unix]
     - cmake  # [win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - python
-    - boost 1.64.*
+    - boost
     - eigen
-    - numpy 1.9.*  # [not (win and py36)]
-    - numpy 1.11.*  # [win and py36]
+    - numpy        # [not (win and py36)]
+    - numpy         # [win and py36]
   run:
     - python
-    - numpy >=1.9  # [not (win and py36)]
-    - numpy >=1.11  # [win and py36]
-    - boost 1.64.*
+    - {{ pin_compatible('numpy') }}   # [not (win and py36)]
+    - {{ pin_compatible('numpy') }}   # [win and py36]
+    - boost
 
 test:
   commands:
