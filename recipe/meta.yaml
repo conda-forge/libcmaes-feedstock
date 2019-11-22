@@ -5,7 +5,6 @@ package:
   version: {{ version }}
 
 source:
-  fn: libcmaes-{{ version }}.tar.gz
   url: https://github.com/beniz/libcmaes/archive/{{ version }}.tar.gz
   sha256: 899fcc44b551e4976a77e48e41bdd5dafc3394bd3fcb3c55996c02e4267bfa28
   patches:
@@ -14,8 +13,7 @@ source:
 
 build:
   number: 3
-  # does not build with vc9
-  skip: true  # [win and py<35]
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
@@ -29,12 +27,10 @@ requirements:
     - python
     - boost
     - eigen
-    - numpy        # [not (win and py36)]
-    - numpy         # [win and py36]
+    - numpy
   run:
     - python
-    - {{ pin_compatible('numpy') }}   # [not (win and py36)]
-    - {{ pin_compatible('numpy') }}   # [win and py36]
+    - {{ pin_compatible('numpy') }}
     - boost
 
 test:
@@ -46,7 +42,7 @@ test:
 
 about:
   home: https://github.com/beniz/libcmaes
-  license: LGPL3
+  license: LGPL-3.0
   license_file: COPYING
   summary: High performance blackbox stochastic optimization using the CMA-ES algorithm
 
