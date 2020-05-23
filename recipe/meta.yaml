@@ -8,33 +8,33 @@ source:
   fn: libcmaes-{{ version }}.tar.gz
   url: https://github.com/beniz/libcmaes/archive/{{ version }}.tar.gz
   sha256: 899fcc44b551e4976a77e48e41bdd5dafc3394bd3fcb3c55996c02e4267bfa28
-  patches:
-    # https://github.com/beniz/libcmaes/pull/149
-    - py3k.patch
+  #patches:
+  #  # https://github.com/beniz/libcmaes/pull/149
+  #  - py3k.patch
 
 build:
-  number: 3
+  number: 4
   # does not build with vc9
   skip: true  # [win and py<35]
 
 requirements:
   build:
-    - autoconf  # [unix]
-    - automake  # [unix]
+      #- autoconf  # [unix]
+      #- automake  # [unix]
     - libtool  # [unix]
-    - cmake  # [win]
+    - libgomp  # [not osx]
+    - llvm-openmp  # [osx]
+    - cmake >=3.12.1
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
     - python
     - boost
     - eigen
-    - numpy        # [not (win and py36)]
-    - numpy         # [win and py36]
+    - numpy
   run:
     - python
-    - {{ pin_compatible('numpy') }}   # [not (win and py36)]
-    - {{ pin_compatible('numpy') }}   # [win and py36]
+    - numpy
     - boost
 
 test:
