@@ -1,16 +1,14 @@
 #!/bin/sh
 
 
-echo "Building libcmaes..."
-mkdir -p build_libcmaes
-cd build_libcmaes
 cmake \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+    -DPYTHON_EXECUTABLE=${PREFIX}/bin/python \
     -DCMAKE_BUILD_TYPE=Release \
     -DUSE_COMPILE_FEATURES=OFF \
-    ..
+    $SRC_DIR
+make
 make install
-cd ..
 
 #PYTHON_INCLUDE_DIR=`python -c "from sysconfig import get_paths; info = get_paths(); print(info['include'])"`
 #export CXXFLAGS="${CXXFLAGS} -I${PREFIX}/include -I${PYTHON_INCLUDE_DIR}"
