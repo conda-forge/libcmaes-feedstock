@@ -9,8 +9,7 @@ then
 fi
 
 ./autogen.sh
-./configure --prefix=${PREFIX} --with-boost-libdir=${PREFIX}/lib --enable-onlylib --with-eigen3-include=${PREFIX}/include/eigen3 ${with_boost_python3} --enable-python 
-
+./configure --prefix=${PREFIX} --enable-python --enable-onlylib --with-eigen3-include=${PREFIX}/include/eigen3 ${with_boost_python3}
 make -j${CPU_COUNT}
 make install
 mv ${PREFIX}/lib/lcmaes.so ${SP_DIR}
