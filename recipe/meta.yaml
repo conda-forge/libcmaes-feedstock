@@ -8,9 +8,9 @@ source:
   fn: libcmaes-{{ version }}.tar.gz
   url: https://github.com/beniz/libcmaes/archive/{{ version }}.tar.gz
   sha256: 1b23e53eb4acb123348e7d00dfdd7c7699c513950347fcde7425376ad333f6c5
-  patches:
-    # https://github.com/beniz/libcmaes/pull/149
-    - py3k.patch
+  #patches:
+  #  # https://github.com/beniz/libcmaes/pull/149
+  #  - py3k.patch
 
 build:
   number: 0
