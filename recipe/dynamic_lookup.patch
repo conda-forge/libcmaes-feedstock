@@ -32,3 +32,16 @@ index 8c391c2..0c6dc2b 100644
  install (TARGETS lcmaes DESTINATION ${PYTHON_SITE_PACKAGES})
  
  set (PYINSTALLCHECK_ENVIRONMENT "PYTHONPATH=${CMAKE_CURRENT_BINARY_DIR}")
+diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
+index 331cd2c..1894bb1 100644
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -7,7 +7,7 @@ macro (cmaes_add_test name)
+   target_link_libraries (t_${name} cmaes)
+   add_test (NAME ${name} COMMAND t_${name})
+   if (WIN32)
+-    set_tests_properties (${name} PROPERTIES ENVIRONMENT "PATH=${PROJECT_BINARY_DIR}\\src\\${CMAKE_BUILD_TYPE};$ENV{PATH}")  # to load dll
++    set_tests_properties (${name} PROPERTIES ENVIRONMENT "PATH=${PROJECT_BINARY_DIR}\\src;${PROJECT_BINARY_DIR}\\src\\${CMAKE_BUILD_TYPE};$ENV{PATH}")  # to load dll
+   endif ()
+ endmacro ()
+ 
