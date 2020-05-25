@@ -39,7 +39,7 @@ test:
     - test -f ${PREFIX}/include/libcmaes/cmaes.h  # [unix]
     - test -f ${PREFIX}/lib/libcmaes${SHLIB_EXT}  # [unix]
   imports:
-    - lcmaes  # [linux]
+    - lcmaes
 
 about:
   home: https://github.com/beniz/libcmaes
