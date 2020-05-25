@@ -1,0 +1,13 @@
+diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
+index 8c391c2..77c6748 100644
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
+@@ -6,6 +6,8 @@ include_directories (${NUMPY_INCLUDE_DIRS})
+ include_directories (${Boost_INCLUDE_DIRS})
+ 
+ python_add_module (lcmaes lcmaes.cc)
++set_target_properties(lcmaes PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
++
+ target_link_libraries(lcmaes cmaes ${Boost_LIBRARIES})
+ if (LINK_PYTHON)
+   target_link_libraries(lcmaes ${PYTHON_LIBRARIES})
