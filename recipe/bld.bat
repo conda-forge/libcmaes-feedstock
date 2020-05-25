@@ -1,4 +1,5 @@
 
+mkdir build_ && cd build_
 
 cmake -LAH -G "%CMAKE_GENERATOR%"                  ^
   -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"           ^
