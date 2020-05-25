@@ -1,10 +1,4 @@
 
-# cmake support in git
-git clone https://github.com/beniz/libcmaes.git
-cd libcmaes 
-git checkout fca5854
-
-mkdir build && cd build
 
 cmake -LAH -G "%CMAKE_GENERATOR%"                  ^
   -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"           ^
