@@ -1,4 +1,4 @@
-{% set version = "0.9.5" %}
+{% set version = "0.9.6" %}
 
 package:
   name: libcmaes
@@ -7,13 +7,13 @@ package:
 source:
   fn: libcmaes-{{ version }}.tar.gz
   url: https://github.com/beniz/libcmaes/archive/{{ version }}.tar.gz
-  sha256: 899fcc44b551e4976a77e48e41bdd5dafc3394bd3fcb3c55996c02e4267bfa28
-  #patches:
-  #  # https://github.com/beniz/libcmaes/pull/149
-  #  - py3k.patch
+  sha256: 1b23e53eb4acb123348e7d00dfdd7c7699c513950347fcde7425376ad333f6c5
+  patches:
+    # https://github.com/beniz/libcmaes/pull/149
+    - py3k.patch
 
 build:
-  number: 4
+  number: 0
   # does not build with vc9
   skip: true  # [win and py<35]
 
