@@ -9,7 +9,7 @@ source:
   url: https://github.com/beniz/libcmaes/archive/{{ version }}.tar.gz
   sha256: 1b23e53eb4acb123348e7d00dfdd7c7699c513950347fcde7425376ad333f6c5
   patches:
-    - dynamic_lookup.patch  # [not linux]
+    - dynamic_lookup.patch  # [osx]
 
 build:
   number: 0
