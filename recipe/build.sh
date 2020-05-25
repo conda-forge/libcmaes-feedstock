@@ -8,6 +8,6 @@ cmake \
     -DPYTHON_SITE_PACKAGES=${SP_DIR} \
     $SRC_DIR
 
-make
+make -j${CPU_COUNT}
 make install
 ctest
