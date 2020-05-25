@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "$(uname)" != "Darwin" ]; then 
-    export NO_LINK_PYTHON="-DLINK_PYTHON=OFF"
+    export NO_LINK_PYTHON="-DLINK_PYTHON=OFF";
     export CMAKE_CXX_FLAGS="-undefined dynamic_lookup"
 fi
 
