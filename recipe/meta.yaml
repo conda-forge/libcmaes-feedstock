@@ -12,14 +12,14 @@ source:
 build:
   number: 0
   # does not build with vc9
-  skip: true  # [win and py<35]
+  skip: true  # [py<35]
 
 requirements:
   build:
       #- autoconf  # [unix]
       #- automake  # [unix]
     - libtool  # [unix]
-    - libgomp  # [unix]
+    - libgomp  # [linux]
     - llvm-openmp  # [osx]
     - cmake >=3.12.1
     - {{ compiler('c') }}
