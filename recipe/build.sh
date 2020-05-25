@@ -2,7 +2,7 @@
 
 if [ "$(uname)" = "Darwin" ]; then 
     export NO_LINK_PYTHON="-DLINK_PYTHON=OFF";
-    export CMAKE_EXE_LINKER_FLAGS="-undefined dynamic_lookup"
+    export CMAKE_SHARED_LINKER_FLAGS="-undefined dynamic_lookup"
 fi
 
 cmake \
@@ -12,7 +12,7 @@ cmake \
     -DUSE_COMPILE_FEATURES=OFF \
     -DPYTHON_SITE_PACKAGES=${SP_DIR} \
     ${NO_LINK_PYTHON} \
-    -DCMAKE_EXE_LINKER_FLAGS=${CMAKE_EXE_LINKER_FLAGS} \
+    -DCMAKE_SHARED_LINKER_FLAGS=${CMAKE_SHARED_LINKER_FLAGS} \
     $SRC_DIR
 
 make
