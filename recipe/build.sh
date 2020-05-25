@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$(uname)" != "Darwin" ]; then 
+if [ "$(uname)" = "Darwin" ]; then 
     export NO_LINK_PYTHON="-DLINK_PYTHON=OFF";
     export CMAKE_EXE_LINKER_FLAGS="-undefined dynamic_lookup"
 fi
