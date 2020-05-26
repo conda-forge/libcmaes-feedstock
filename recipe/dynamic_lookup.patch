@@ -1,0 +1,47 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1599ad1..ba32ced 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -17,7 +17,6 @@ option (USE_OPENMP "Use OpenMP for multithreading" ON)
+ option (ENABLE_SURROG "support for surrogates" ON)
+ set (HAVE_SURROG ${ENABLE_SURROG})
+ option (USE_COMPILE_FEATURES "use cmake>=3.1 cxx11 detection" ON)
+-option (LINK_PYTHON "link python libraries" ON)
+ 
+ # Offer the user the choice of overriding the installation directories
+ set (INSTALL_LIB_DIR     lib${LIB_SUFFIX} CACHE PATH "Installation directory for libraries")
+diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
+index 8c391c2..0c6dc2b 100644
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
+@@ -6,11 +6,16 @@ include_directories (${NUMPY_INCLUDE_DIRS})
+ include_directories (${Boost_INCLUDE_DIRS})
+ 
+ python_add_module (lcmaes lcmaes.cc)
++
+ target_link_libraries(lcmaes cmaes ${Boost_LIBRARIES})
+-if (LINK_PYTHON)
++
++if (WIN32)
+   target_link_libraries(lcmaes ${PYTHON_LIBRARIES})
++elseif (APPLE)
++  set_target_properties(lcmaes PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
+ endif ()
+ 
++
+ install (TARGETS lcmaes DESTINATION ${PYTHON_SITE_PACKAGES})
+ 
+ set (PYINSTALLCHECK_ENVIRONMENT "PYTHONPATH=${CMAKE_CURRENT_BINARY_DIR}")
+diff --git a/tests/CMakeLists.txt b/tests/CMakeLists.txt
+index 331cd2c..1894bb1 100644
+--- a/tests/CMakeLists.txt
++++ b/tests/CMakeLists.txt
+@@ -7,7 +7,7 @@ macro (cmaes_add_test name)
+   target_link_libraries (t_${name} cmaes)
+   add_test (NAME ${name} COMMAND t_${name})
+   if (WIN32)
+-    set_tests_properties (${name} PROPERTIES ENVIRONMENT "PATH=${PROJECT_BINARY_DIR}\\src\\${CMAKE_BUILD_TYPE};$ENV{PATH}")  # to load dll
++    set_tests_properties (${name} PROPERTIES ENVIRONMENT "PATH=${PROJECT_BINARY_DIR}\\src;${PROJECT_BINARY_DIR}\\src\\${CMAKE_BUILD_TYPE};$ENV{PATH}")  # to load dll
+   endif ()
+ endmacro ()
+ 
