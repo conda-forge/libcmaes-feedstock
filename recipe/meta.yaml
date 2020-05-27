@@ -8,9 +8,6 @@ source:
   fn: libcmaes-{{ version }}.tar.gz
   url: https://github.com/beniz/libcmaes/archive/{{ version }}.tar.gz
   sha256: 45765a9aaf102733e76f5f60a24fa177b026e71d74f6ecddc2e9a33a6a1d7cb6
-  patches:
-    # https://github.com/beniz/libcmaes/pull/206
-    - dynamic_lookup.patch
 
 build:
   number: 0
@@ -30,7 +27,7 @@ requirements:
     - numpy
   run:
     - python
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - boost
 
 test:
