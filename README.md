@@ -3,7 +3,7 @@ About libcmaes
 
 Home: https://github.com/beniz/libcmaes
 
-Package license: LGPL3
+Package license: LGPL-3.0-or-later
 
 Feedstock license: BSD 3-Clause
 
