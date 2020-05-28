@@ -1,4 +1,4 @@
-{% set version = "0.9.6" %}
+{% set version = "0.9.6.1" %}
 
 package:
   name: libcmaes
@@ -7,10 +7,7 @@ package:
 source:
   fn: libcmaes-{{ version }}.tar.gz
   url: https://github.com/beniz/libcmaes/archive/{{ version }}.tar.gz
-  sha256: 1b23e53eb4acb123348e7d00dfdd7c7699c513950347fcde7425376ad333f6c5
-  patches:
-    # https://github.com/beniz/libcmaes/pull/206
-    - dynamic_lookup.patch
+  sha256: 45765a9aaf102733e76f5f60a24fa177b026e71d74f6ecddc2e9a33a6a1d7cb6
 
 build:
   number: 0
@@ -30,7 +27,7 @@ requirements:
     - numpy
   run:
     - python
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - boost
 
 test:
