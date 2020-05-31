@@ -1,7 +1,7 @@
 CMAKE_GENERATOR:
 - NMake Makefiles
 boost:
-- 1.70.0
+- '1.72'
 c_compiler:
 - vs2017
 channel_sources:
