@@ -17,7 +17,8 @@ requirements:
     - libtool  # [unix]
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
-    - cmake >=3.12.1
+    - cmake
+    - make  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
   host:
