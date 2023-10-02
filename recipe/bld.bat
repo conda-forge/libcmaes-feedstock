@@ -1,6 +1,9 @@
 
 mkdir build_ && cd build_
 
+:: see https://github.com/boostorg/system/issues/32#issuecomment-462912013
+set "CFLAGS=%CFLAGS% -DHAVE_SNPRINTF=1"
+
 cmake -LAH -G "%CMAKE_GENERATOR%"                  ^
   -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"           ^
   -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%"        ^
