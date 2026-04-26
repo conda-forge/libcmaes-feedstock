@@ -1,4 +1,4 @@
-{% set version = "0.9.6.1" %}
+{% set version = "0.10.2" %}
 
 package:
   name: libcmaes
@@ -6,11 +6,11 @@ package:
 
 source:
   fn: libcmaes-{{ version }}.tar.gz
-  url: https://github.com/beniz/libcmaes/archive/{{ version }}.tar.gz
-  sha256: 45765a9aaf102733e76f5f60a24fa177b026e71d74f6ecddc2e9a33a6a1d7cb6
+  url: https://github.com/beniz/libcmaes/archive/v{{ version }}.tar.gz
+  sha256: 466e2775db4166f8a0662f0d986c637a7e36c9b8e93bc0c12cb15a884620e23d
 
 build:
-  number: 7
+  number: 0
 
 requirements:
   build:
